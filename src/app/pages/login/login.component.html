@@ -1,0 +1,49 @@
+<body class="hold-transition login-page">
+  <div class="login-box" >
+    <div class="login-logo">
+      <b>Lenord</b>
+    </div>
+    <div class="login-box-body">
+
+      <form (submit)="login()" >
+
+        <div class="form-group has-feedback">
+          <input type="email" class="form-control" placeholder="E-mail" required minlength="8" name="eml" [(ngModel)]="email" #eml="ngModel">
+          <span class="glyphicon glyphicon-enveloppe form-control-feedback"></span>
+          <div *ngIf="eml.errors && (eml.dirty || eml.touched)" class="alert alert-danger">
+              <div [hidden]="!eml.errors.required">
+                Informe um e-mail
+              </div>
+              <div [hidden]="!eml.errors.minlength">
+                A senha precisa ter no mínimo 8 caracteres
+              </div>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Senha" required minlength="8" name="passwd" [(ngModel)]="password" #passwd="ngModel">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div *ngIf="passwd.errors && (passwd.dirty || passwd.touched)"
+               class="alert alert-danger">
+              <div [hidden]="!passwd.errors.required">
+                Informe uma Senha
+              </div>
+              <div [hidden]="!passwd.errors.minlength">
+                A senha precisa ter no mínimo 8 caracteres
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+          </div>
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat" (click)="login()" >Entrar</button>
+          </div>
+        </div>
+      </form>
+
+      <a href="#">Esqueci minha Senha</a><br>
+
+    </div>
+  </div>
+</body>
